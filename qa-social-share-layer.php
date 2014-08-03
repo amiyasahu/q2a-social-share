@@ -6,7 +6,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 	function head_css() 
 	{
 		qa_html_theme_base::head_css();			
-		$this->output('<link rel="stylesheet" href="'.qa_opt('site_url').'qa-plugin/'.SOCIAL_SHARE_PLUGIN_DIR_NAME.'/qa-simple-social-sharing.css">');
+		$this->output('<link rel="stylesheet" href="'.qa_opt('site_url').'qa-plugin/'.SOCIAL_SHARE_PLUGIN_DIR_NAME.'/qa-social-share.css">');
 		$this->output('<link rel="stylesheet" href="'.qa_opt('site_url').'qa-plugin/'.SOCIAL_SHARE_PLUGIN_DIR_NAME.'/icons.css">');
 		
 		$style_open = '<style type="text/css">.qa-sss-buttons {height: 16px; margin-top: 25px;}';
