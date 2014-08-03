@@ -19,6 +19,7 @@ return array(
 		'custom_css'                       => 'Add your costum css here' ,
 		'default_share_text'               => 'Share On ' ,
 		'choose_share_type'                => 'Choose the share type ' ,
+		'or'                               => 'or ' ,
 		/*share types options */
 		'image_icons'                      => 'Image icons ' ,
 		'textual_share'                    => 'Textual share' ,

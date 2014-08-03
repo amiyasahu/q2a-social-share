@@ -150,7 +150,7 @@ function ami_sss_get_separator( $type )
 	}
 	
 	if (ami_sss_is_last($all_array , $type , $how_many)) {
-		return "or ";
+		return qa_lang('sss_lang/or');
 	}
 
 	return ",";
