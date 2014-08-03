@@ -1,4 +1,4 @@
-q2a-social-share
-================
+simple-social-sharing
+=====================
 
-For sharing questions in social media 
+A simple, bloat-free social sharing plugin for Question2Answer platform
