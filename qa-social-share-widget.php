@@ -1,6 +1,6 @@
 <?php
 
-	class qa_simple_social_sharing_widget {	
+	class qa_social_share_widget {	
 
 		function allow_template($template)
 		{

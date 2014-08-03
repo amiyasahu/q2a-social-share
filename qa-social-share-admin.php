@@ -1,6 +1,6 @@
 <?php
 
-	class qa_simple_social_sharing_admin {
+	class qa_social_share_admin {
 
 		function allow_template($template)
 		{
