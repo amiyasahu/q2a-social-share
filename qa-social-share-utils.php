@@ -1,9 +1,15 @@
 <?php
 
-function ami_generate_social_buttons($data)
+function ami_generate_social_buttons($data , $template = null )
 {
+	$share_text = '' ;
+	if (is_null($template) || $template == 'question') {
+		$share_text = qa_opt(qa_sss_opt::SHARE_TEXT) ;
+	}elseif (!is_null($template) && $template == 'qa') {
+		$share_text = qa_opt(qa_sss_opt::SHARE_TEXT_HOME) ;
+	}
 	$buttons  = '<div class="qa-sss-buttons">' ;
-	$buttons .=		'<div class="qa-sss-text">'.qa_opt(qa_sss_opt::SHARE_TEXT).' </div>';
+	$buttons .=		'<div class="qa-sss-text">'.$share_text.' </div>';
 	$buttons .=		'<div class="qa-sss-final">';
 	$buttons .=			qa_opt(qa_sss_opt::GP_BUTTON)? get_social_button( 'gp',$data ):'';
 	$buttons .=			qa_opt(qa_sss_opt::FB_BUTTON)? get_social_button( 'fb',$data ):'';

@@ -11,6 +11,7 @@
 		{
 			switch ($option) {
 				case qa_sss_opt::SHARE_TEXT:
+				case qa_sss_opt::SHARE_TEXT_HOME:
 					return ;
 					break;			
 				case qa_sss_opt::FB_BUTTON:
@@ -37,15 +38,16 @@
 			if (qa_clicked(qa_sss_opt::ADMIN_SAVE_BTN)) {
 
 				$trimchars="=;\"\' \t\r\n"; // prevent common errors by copying and pasting from Javascript
-				qa_opt(qa_sss_opt::SHARE_TEXT, trim(qa_post_text(qa_sss_opt::SHARE_TEXT), $trimchars));
-				qa_opt(qa_sss_opt::FB_BUTTON,     (bool)qa_post_text(qa_sss_opt::FB_BUTTON));
-				qa_opt(qa_sss_opt::GP_BUTTON,     (bool)qa_post_text(qa_sss_opt::GP_BUTTON));			
-				qa_opt(qa_sss_opt::TW_BUTTON,     (bool)qa_post_text(qa_sss_opt::TW_BUTTON));
-				qa_opt(qa_sss_opt::LI_BUTTON,     (bool)qa_post_text(qa_sss_opt::LI_BUTTON));
-				qa_opt(qa_sss_opt::RE_BUTTON,     (bool)qa_post_text(qa_sss_opt::RE_BUTTON));
-				qa_opt(qa_sss_opt::VK_BUTTON,     (bool)qa_post_text(qa_sss_opt::VK_BUTTON));
-				qa_opt(qa_sss_opt::EM_BUTTON,     (bool)qa_post_text(qa_sss_opt::EM_BUTTON));
-				qa_opt(qa_sss_opt::BUTTON_STATUS, (bool)qa_post_text(qa_sss_opt::BUTTON_STATUS));
+				qa_opt(qa_sss_opt::SHARE_TEXT, 		trim(qa_post_text(qa_sss_opt::SHARE_TEXT), $trimchars));
+				qa_opt(qa_sss_opt::SHARE_TEXT_HOME, trim(qa_post_text(qa_sss_opt::SHARE_TEXT_HOME), $trimchars));
+				qa_opt(qa_sss_opt::FB_BUTTON,       (bool)qa_post_text(qa_sss_opt::FB_BUTTON));
+				qa_opt(qa_sss_opt::GP_BUTTON,       (bool)qa_post_text(qa_sss_opt::GP_BUTTON));			
+				qa_opt(qa_sss_opt::TW_BUTTON,       (bool)qa_post_text(qa_sss_opt::TW_BUTTON));
+				qa_opt(qa_sss_opt::LI_BUTTON,       (bool)qa_post_text(qa_sss_opt::LI_BUTTON));
+				qa_opt(qa_sss_opt::RE_BUTTON,       (bool)qa_post_text(qa_sss_opt::RE_BUTTON));
+				qa_opt(qa_sss_opt::VK_BUTTON,       (bool)qa_post_text(qa_sss_opt::VK_BUTTON));
+				qa_opt(qa_sss_opt::EM_BUTTON,       (bool)qa_post_text(qa_sss_opt::EM_BUTTON));
+				qa_opt(qa_sss_opt::BUTTON_STATUS,   (bool)qa_post_text(qa_sss_opt::BUTTON_STATUS));
 
 				qa_opt(qa_sss_opt::SHARE_TYPE_OPTION, qa_post_text(qa_sss_opt::SHARE_TYPE_OPTION));
 				qa_opt(qa_sss_opt::CUSTOM_CSS, qa_post_text(qa_sss_opt::CUSTOM_CSS));
@@ -68,13 +70,20 @@
 				'ok' => $saved ? qa_lang('sss_lang/sss_settings_saved') : null,
 
 				'fields' => array(
+					qa_sss_opt::SHARE_TEXT_HOME => array(
+								'id'    => qa_sss_opt::SHARE_TEXT_HOME,
+								'label' => qa_lang('sss_lang/enter_share_text_for_home'),
+								'value' => qa_html(qa_opt(qa_sss_opt::SHARE_TEXT_HOME)),
+								'tags'  => 'name="'.qa_sss_opt::SHARE_TEXT_HOME.'"',
+							),	
 					qa_sss_opt::SHARE_TEXT => array(
 								'id'    => qa_sss_opt::SHARE_TEXT,
 								'label' => qa_lang('sss_lang/enter_share_text'),
 								'value' => qa_html(qa_opt(qa_sss_opt::SHARE_TEXT)),
 								'tags'  => 'name="'.qa_sss_opt::SHARE_TEXT.'"',
 								'note'  => qa_lang('sss_lang/choose_buttons_from_below'),
-							),					
+							),	
+
 					qa_sss_opt::FB_BUTTON => array(
 								'id'    => qa_sss_opt::FB_BUTTON,					
 								'label' => qa_lang('sss_lang/fb'),

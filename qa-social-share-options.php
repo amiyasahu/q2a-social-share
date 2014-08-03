@@ -1,18 +1,19 @@
 <?php 
 
 class qa_sss_opt {	
-	const PREFIX         = 'ami_sss_' ;
-	const SHARE_TEXT     = 'ami_sss_text'  ;
-	const CUSTOM_CSS     = 'ami_sss_costum_css'  ;
-	const ADMIN_SAVE_BTN = 'ami_sss_save_button'  ;
-	const FB_BUTTON      = 'ami_sss_btn_fb'  ;
-	const GP_BUTTON      = 'ami_sss_btn_gp'  ;
-	const TW_BUTTON      = 'ami_sss_btn_tw'  ;
-	const LI_BUTTON      = 'ami_sss_btn_li'  ;
-	const RE_BUTTON      = 'ami_sss_btn_re'  ;
-	const EM_BUTTON      = 'ami_sss_btn_em'  ;
-	const VK_BUTTON      = 'ami_sss_btn_vk'  ;
-	const BUTTON_STATUS  = 'ami_sss_btn_status'  ;
+	const PREFIX          = 'ami_sss_' ;
+	const SHARE_TEXT      = 'ami_sss_text'  ;
+	const SHARE_TEXT_HOME = 'ami_sss_text_home'  ;
+	const CUSTOM_CSS      = 'ami_sss_costum_css'  ;
+	const ADMIN_SAVE_BTN  = 'ami_sss_save_button'  ;
+	const FB_BUTTON       = 'ami_sss_btn_fb'  ;
+	const GP_BUTTON       = 'ami_sss_btn_gp'  ;
+	const TW_BUTTON       = 'ami_sss_btn_tw'  ;
+	const LI_BUTTON       = 'ami_sss_btn_li'  ;
+	const RE_BUTTON       = 'ami_sss_btn_re'  ;
+	const EM_BUTTON       = 'ami_sss_btn_em'  ;
+	const VK_BUTTON       = 'ami_sss_btn_vk'  ;
+	const BUTTON_STATUS   = 'ami_sss_btn_status'  ;
 
 	const GP_URL_TEMPLATE = 'https://plus.google.com/share?url={{page_url}}" ' ;
 	const FB_URL_TEMPLATE = 'https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;ref=fbshare&amp;t={{page_title}}" ' ;

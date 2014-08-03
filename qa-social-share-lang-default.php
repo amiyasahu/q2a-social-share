@@ -1,7 +1,8 @@
 <?php
 return array(
 		'sss_settings_saved'               => 'Simple Social Sharing settings saved' ,
-		'enter_share_text'                 => 'Enter Your Share Text:' ,
+		'enter_share_text_for_home'        => 'Enter Your Share Text for home page:' ,
+		'enter_share_text'                 => 'Enter Your Share Text for question page :' ,
 		'choose_buttons_from_below'        => '<br />Choose Sharing Buttons from below: ' ,
 		'fb'                               => 'Facebook' ,
 		'gp'                               => 'Google+' ,
