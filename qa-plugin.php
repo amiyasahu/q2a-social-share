@@ -29,7 +29,7 @@ qa_register_plugin_layer('qa-social-share-layer.php', 'Social Sharing Layer');
 qa_register_plugin_module('module', 'qa-social-share-admin.php', 'qa_social_share_admin', 'Social Sharing Admin');
 qa_register_plugin_module('widget', 'qa-social-share-widget.php', 'qa_social_share_widget', 'Social Sharing Widget');
 // qa_register_plugin_module('module', 'qa-social-share-options.php', 'qa_sss_opt', 'Social Sharing Widget options ');
-qa_register_plugin_phrases('qa-social-share-lang-*.php', 'sss_lang');
+qa_register_plugin_phrases('lang/qa-social-share-lang-*.php', 'sss_lang');
 
 /*
 	Omit PHP closing tag to help avoid accidental output
