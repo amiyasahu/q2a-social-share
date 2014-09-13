@@ -23,6 +23,7 @@
 			$social_button = ami_generate_social_buttons(array(
 					'{{page_url}}' => $page_url ,
 					'{{page_title}}' => $page_title ,
+					'request' => $request ,
 				) , $template );
 			$themeobject->output($social_button) ;
 		}
