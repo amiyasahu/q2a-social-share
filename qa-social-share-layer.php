@@ -26,7 +26,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 			$social_button = ami_generate_social_buttons(array(
 					'{{page_url}}'   => $page_url ,
 					'{{page_title}}' => $page_title ,
-				));
+				), $this->template );
 			$this->output($social_button) ;
 		}
 		qa_html_theme_base::q_view_buttons($q_view);

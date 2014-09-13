@@ -29,10 +29,10 @@ function get_social_button($type , $data , $template = null )
 {
 	if ($type == 'vk' && $template == 'question') {
 		// if it is a question url for vk.com trim the title from the url as it is not supported 
-		$url = qa_opt('site_url').$data['request'] ;
+		$url = qa_opt('site_url').qa_request() ;
 		$data['{{page_url}}'] = urlencode(substr($url, 0, strrpos( $url, '/' )+1)) ;
 	}
-	
+
 	$url       = qa_sss_opt::get_url_subs($type , $data);
 	$class     = ami_get_social_class($type);
 	$icon      = ami_sss_icon_i($type);
