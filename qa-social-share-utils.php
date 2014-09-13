@@ -8,6 +8,7 @@ function ami_generate_social_buttons($data , $template = null )
 	}elseif (!is_null($template) && $template == 'qa') {
 		$share_text = qa_opt(qa_sss_opt::SHARE_TEXT_HOME) ;
 	}
+
 	$buttons  = '<div class="qa-sss-buttons">' ;
 	$buttons .=		'<div class="qa-sss-text">'.$share_text.' </div>';
 	$buttons .=		'<div class="qa-sss-final">';
@@ -16,7 +17,7 @@ function ami_generate_social_buttons($data , $template = null )
 	$buttons .=			qa_opt(qa_sss_opt::TW_BUTTON)? get_social_button( 'tw',$data ):'';
 	$buttons .=			qa_opt(qa_sss_opt::LI_BUTTON)? get_social_button( 'li',$data ):'';
 	$buttons .=			qa_opt(qa_sss_opt::RE_BUTTON)? get_social_button( 're',$data ):'';
-	$buttons .=			qa_opt(qa_sss_opt::VK_BUTTON)? get_social_button( 'vk',$data ):'';
+	$buttons .=			qa_opt(qa_sss_opt::VK_BUTTON)? get_social_button( 'vk',$data , $template):'';
 	$buttons .=			qa_opt(qa_sss_opt::EM_BUTTON)? get_social_button( 'em',$data ):'';
 	$buttons .=		'</div>'; 
 	$buttons .=		'<div class="qa-sss-clear"></div>'; 
@@ -24,8 +25,14 @@ function ami_generate_social_buttons($data , $template = null )
 	return $buttons;
 }
 
-function get_social_button($type , $data )
+function get_social_button($type , $data , $template = null )
 {
+	if ($type == 'vk' && $template == 'question') {
+		// if it is a question url for vk.com trim the title from the url as it is not supported 
+		$url = qa_opt('site_url').$this->request ;
+		$data['{{page_url}}'] = substr($url, 0, strrpos( $url, '/' )+1) ;
+	}
+
 	$url       = qa_sss_opt::get_url_subs($type , $data);
 	$class     = ami_get_social_class($type);
 	$icon      = ami_sss_icon_i($type);
