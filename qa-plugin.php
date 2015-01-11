@@ -4,8 +4,8 @@
 	Plugin Name: Q2A Social Sharing 
 	Plugin URI: https://github.com/amiyasahu/q2a-social-share/
 	Plugin Description: Adds Clickable Social Sharing Buttons Below Questions
-	Plugin Version: 1.2
-	Plugin Date: 2014-09-13
+	Plugin Version: 1.3.0
+	Plugin Date: 2015-01-11
 	Plugin Author: Amiya Sahu 
 	Plugin Author URI: http://amiyasahu.com
 	Plugin License: GPLv2
