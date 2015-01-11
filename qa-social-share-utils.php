@@ -3,7 +3,7 @@
 function ami_generate_social_buttons($data , $template = null )
 {
 	$share_text = '' ;
-	if (is_null($template) || $template == 'question') {
+	if (is_null($template) || $template == 'question'|| $template == 'blog') {
 		$share_text = qa_opt(qa_sss_opt::SHARE_TEXT) ;
 	}elseif (!is_null($template) && $template == 'qa') {
 		$share_text = qa_opt(qa_sss_opt::SHARE_TEXT_HOME) ;
@@ -27,7 +27,7 @@ function ami_generate_social_buttons($data , $template = null )
 
 function get_social_button($type , $data , $template = null )
 {
-	if ($type == 'vk' && $template == 'question') {
+	if ($type == 'vk' && ($template == 'question' || $template == 'blog') ) {
 		// if it is a question url for vk.com trim the title from the url as it is not supported 
 		$url = qa_opt('site_url').qa_request() ;
 		$data['{{page_url}}'] = urlencode(substr($url, 0, strrpos( $url, '/' )+1)) ;
@@ -92,11 +92,6 @@ function ami_get_social_class($social_type)
 	}
 	return $class ;
 
-}
-
-function ami_print_social_buttons($value='')
-{
-	echo ami_generate_social_buttons();
 }
 
 function ami_sss_icon($type)

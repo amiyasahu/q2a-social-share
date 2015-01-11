@@ -2,7 +2,7 @@
 return array(
 		'sss_settings_saved'               => 'Simple Social Sharing settings saved' ,
 		'enter_share_text_for_home'        => 'Enter Your Share Text for home page:' ,
-		'enter_share_text'                 => 'Enter Your Share Text for question page :' ,
+		'enter_share_text'                 => 'Enter Your Share Text for question / blog page :' ,
 		'choose_buttons_from_below'        => '<br />Choose Sharing Buttons from below: ' ,
 		'fb'                               => 'Facebook' ,
 		'gp'                               => 'Google+' ,
@@ -13,7 +13,7 @@ return array(
 		'em'                               => 'Email' ,
 		'vk'                               => 'Vk.com' ,
 		'email'                            => 'Email' ,
-		'sharing_btn_enable_note'          => '<br />Sharing buttons show up by default below each question, but you might want 				to turn them off if you are using the Sharing widget',
+		'sharing_btn_enable_note'          => '<br />Sharing buttons show up by default below each question / blog-post , but you might want 				to turn them off if you are using the Sharing widget',
 		'currently_enabled'                => 'Currently Enabled <em>(Uncheck to disable)</em>' ,
 		'currently_disabled'               => 'Currently Disabled <em>(Check to enable)</em>' ,
 		'save_changes'                     => 'Save Changes ' ,

@@ -4,7 +4,7 @@
 
 		function allow_template($template)
 		{
-			return ($template=='question' || $template=='qa');
+			return ($template=='question' || $template=='blog' || $template=='qa');
 		}
 
 		function allow_region($region)
@@ -15,7 +15,7 @@
 		function output_widget($region, $place, $themeobject, $template, $request, $qa_content)
 		{
 			$page_url      = urlencode(qa_opt('site_url').$request);
-			if ($template=='question' && isset($qa_content["q_view"])) {
+			if ( ( $template=='question' || $template=='blog' ) && isset($qa_content["q_view"])) {
 				$page_title    = urlencode($qa_content["q_view"]["raw"]["title"]);
 			}else {
 				$page_title    = urlencode(qa_opt('site_title'));
