@@ -1,15 +1,5 @@
 <?php
 
-    function get_social_button( $type, $data, $template = null )
-    {
-        if ( $type == 'vk' && ( $template == 'question' || $template == 'blog' ) ) {
-            // if it is a question url for vk.com trim the title from the url as it is not supported
-            $url = qa_opt( 'site_url' ) . qa_request();
-            $data['{{page_url}}'] = urlencode( substr( $url, 0, strrpos( $url, '/' ) + 1 ) );
-        }
-
-    }
-
     function ami_social_icon( $icon )
     {
         return '<i class="' . $icon . '"></i>';

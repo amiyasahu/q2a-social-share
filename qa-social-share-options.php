@@ -42,12 +42,6 @@
         const SHARE_TYPE_ICON_TEXT_TEMPLATE = '<a href="{{url}}" target="_blank" rel="external nofollow" class="{{class}}" title="{{title}}">{{icon}} {{text}}</a>';
         const SHARE_TYPE_ICON_ONLY_TEMPLATE = '<a href="{{url}}" target="_blank" rel="external nofollow" class="{{class}}" title="{{title}}">{{icon}}</a>';
         const SHARE_TYPE_COLORED_TEXT_TEMPLATE = '<a href="{{url}}" target="_blank" rel="external nofollow" class="{{class}}" title="{{title}}">{{text}}</a>';
-
-        public static function get_url_subs( $type, $subs )
-        {
-            return strtr( self::get_url_template( $type ), $subs );
-        }
-
     }
 
     /*
