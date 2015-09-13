@@ -1,70 +1,84 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-d5hb4f');
-	src:url('fonts/icomoon.eot?#iefix-d5hb4f') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-d5hb4f') format('woff'),
-		url('fonts/icomoon.ttf?-d5hb4f') format('truetype'),
-		url('fonts/icomoon.svg?-d5hb4f#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?-d5hb4f');
+    src: url('fonts/icomoon.eot?#iefix-d5hb4f') format('embedded-opentype'),
+    url('fonts/icomoon.woff?-d5hb4f') format('woff'),
+    url('fonts/icomoon.ttf?-d5hb4f') format('truetype'),
+    url('fonts/icomoon.svg?-d5hb4f#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-envelope-o:before {
-	content: "\f003";
+    content: "\f003";
 }
+
 .icon-linkedin-square:before {
-	content: "\f08c";
+    content: "\f08c";
 }
+
 .icon-twitter:before {
-	content: "\f099";
+    content: "\f099";
 }
+
 .icon-facebook:before {
-	content: "\f09a";
+    content: "\f09a";
 }
+
 .icon-pinterest:before {
-	content: "\f0d2";
+    content: "\f0d2";
 }
+
 .icon-pinterest-square:before {
-	content: "\f0d3";
+    content: "\f0d3";
 }
+
 .icon-google-plus-square:before {
-	content: "\f0d4";
+    content: "\f0d4";
 }
+
 .icon-google-plus:before {
-	content: "\f0d5";
+    content: "\f0d5";
 }
+
 .icon-envelope:before {
-	content: "\f0e0";
+    content: "\f0e0";
 }
+
 .icon-vk:before {
-	content: "\f189";
+    content: "\f189";
 }
+
 .icon-envelope-square:before {
-	content: "\f199";
+    content: "\f199";
 }
+
 .icon-google:before {
-	content: "\f1a0";
+    content: "\f1a0";
 }
+
 .icon-reddit:before {
-	content: "\f1a1";
+    content: "\f1a1";
 }
+
 .icon-reddit-square:before {
-	content: "\f1a2";
+    content: "\f1a2";
 }
+
 .icon-send-o:before {
-	content: "\f1d9";
+    content: "\f1d9";
 }
