@@ -34,6 +34,7 @@
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_VkButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialButtonFactory.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialShare.php';
+    require_once SOCIAL_SHARE_PLUGIN_DIR . '/opengraph/open-graph-protocol.php';
 
 
     qa_register_plugin_layer( 'qa-social-share-layer.php', 'Social Sharing Layer' );
