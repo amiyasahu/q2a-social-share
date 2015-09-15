@@ -16,6 +16,11 @@
         const VK_BUTTON = 'ami_sss_btn_vk';
         const BUTTON_STATUS = 'ami_sss_btn_status';
 
+        const ENABLE_OPEN_GRAPH_SUPPORT = 'ami_sss_enable_opengraph';
+        const FACEBOOK_APP_ID = 'ami_sss_fb_id';
+        const TWITTER_HANDLE = 'ami_sss_twitter_handle';
+        const WEBSITE_DESCRIPTION = 'ami_sss_website_desc';
+
         const GP_URL_TEMPLATE = 'https://plus.google.com/share?url={{page_url}}" ';
         const FB_URL_TEMPLATE = 'https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;ref=fbshare&amp;t={{page_title}}" ';
         const TW_URL_TEMPLATE = 'https://twitter.com/intent/tweet?original_referer={{page_url}}&amp;text={{page_title}}&amp;url={{page_url}}" ';
@@ -26,13 +31,13 @@
 
         /*constants for the types of the social buttons */
 
-        const SHARE_TYPE_OPTION = 'ami_sss_type_opt';
+        const SHARE_TYPE_OPTION = 'ami_sss_type_option';
         const SHARE_TYPE_IMAGE = 'image';
         const SHARE_TYPE_TEXT = 'text_only';
         const SHARE_TYPE_COLORED_BTNS = 'colored_buttons';
         const SHARE_TYPE_COLORED_BTNS_WITH_ICON = 'colored_buttons_with_icon';
         const SHARE_TYPE_FI_SQ = 'squared_btns_with_icon';
-        const SHARE_TYPE_FI_SEMI_ROUNDED = 'Semi Rounded Icons';
+        const SHARE_TYPE_FI_SEMI_ROUNDED = 'semi_rounded_buttons';
         const SHARE_TYPE_FI_ROUNDED = 'rounded_buttons_with_icon';
         const SHARE_TYPE_ANIMATED_FI = 'animated_btns_with_icon';
 

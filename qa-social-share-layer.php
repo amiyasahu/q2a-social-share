@@ -6,65 +6,67 @@
         {
             parent::head_metas();
 
-            if ( in_array( $this->template, array( 'question', 'blog' ) ) ) {
-                $content = $this->content['q_view']['raw']['content'];
-                $image_url = ami_social_get_first_image_from_html( $content );
-                $description = @$this->content['description'];
-            } else if ( $this->template == 'user' ) {
-                $image_html = $this->content['form_profile']['fields']['avatar']['html'];
-                $image_url = ami_social_get_first_image_from_html( $image_html );
-                $description = $this->content['form_profile']['fields']['about']['value'];
-            } else {
-                $description = $this->content['sidebar'];
-            }
-
-            if ( empty( $image_url ) ) {
-                $image_url = qa_opt( 'logo_url' );
-                $image_type = image_type_to_mime_type( exif_imagetype( $image_url ) );
-            }
-
-
-            $site_lang = qa_opt( 'site_language' );
-            $locale = $site_lang ? $site_lang : 'en_US';
-            $current_url = qa_opt( 'site_url' ) . qa_request();
-
-            $ogp = new OpenGraphProtocol();
-            $ogp->setLocale( $locale );
-            $ogp->setSiteName( qa_opt( 'site_title' ) );
-            $ogp->setTitle( $this->content['title'] );
-            $ogp->setDescription( $description );
-            $ogp->setType( 'website' );
-            $ogp->setURL( $current_url );
-            $ogp->setDeterminer( 'the' );
-
-            if ( !empty( $image_url ) ) {
-                $image_url = url_to_absolute( qa_opt( 'site_url' ), $image_url );
-                $image_url = htmlspecialchars_decode( urldecode( $image_url ) );
-
-                if ( strpos( $image_url, 'qa_blobid=' ) === false ) {
-                    $image_type = image_type_to_mime_type( exif_imagetype( $image_url ) );
+            if ( qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) ) {
+                if ( in_array( $this->template, array( 'question', 'blog' ) ) ) {
+                    $content = $this->content['q_view']['raw']['content'];
+                    $image_url = ami_social_get_first_image_from_html( $content );
+                    $description = @$this->content['description'];
+                } else if ( $this->template == 'user' ) {
+                    $image_html = $this->content['form_profile']['fields']['avatar']['html'];
+                    $image_url = ami_social_get_first_image_from_html( $image_html );
+                    $description = $this->content['form_profile']['fields']['about']['value'];
                 } else {
-                    require_once QA_INCLUDE_DIR . '/app/blobs.php';
-                    $blobid = substr( $image_url, strpos( $image_url, 'qa_blobid=' ) + strlen( 'qa_blobid=' ) );
-                    $blob = qa_read_blob( $blobid );
-                    if ( !empty( $blob ) ) {
-                        $image_type = 'image/' . $blob['format'];
-                    }
+                    $description = qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION );
+
+                    if ( empty( $description ) )
+                        $description = $this->content['sidebar'];
                 }
 
-                $imageOg = new OpenGraphProtocolImage();
-                $imageOg->setURL( $image_url );
-
-                if ( !empty( $image_type ) ) {
-                    $imageOg->setType( $image_type );
+                if ( empty( $image_url ) ) {
+                    $image_url = qa_opt( 'logo_url' );
                 }
 
-                $imageOg->setWidth( 400 );
-                $imageOg->setHeight( 300 );
-                $ogp->addImage( $imageOg );
+                $site_lang = qa_opt( 'site_language' );
+                $locale = $site_lang ? $site_lang : 'en_US';
+                $current_url = qa_opt( 'site_url' ) . qa_request();
+
+                $ogp = new OpenGraphProtocol();
+                $ogp->setLocale( $locale );
+                $ogp->setSiteName( qa_opt( 'site_title' ) );
+                $ogp->setTitle( $this->content['title'] );
+                $ogp->setDescription( $description );
+                $ogp->setType( 'website' );
+                $ogp->setURL( $current_url );
+                $ogp->setDeterminer( 'the' );
+
+                if ( !empty( $image_url ) ) {
+                    $imageOg = new OpenGraphProtocolImage();
+                    $imageOg->setURL( $image_url );
+                    $imageOg->setWidth( 400 );
+                    $imageOg->setHeight( 300 );
+                    $ogp->addImage( $imageOg );
+                }
+
+                $this->output( $ogp->toHTML() );
+                $facebook_app_id = qa_opt( qa_sss_opt::FACEBOOK_APP_ID );
+
+                if ( !empty( $facebook_app_id ) ) {
+                    $this->output( '<meta property="fb:app_id" content="' . $facebook_app_id . '" />' );
+                }
+
+                $twitter_username = trim( qa_opt( qa_sss_opt::TWITTER_HANDLE ) );
+
+                if ( !empty( $twitter_username ) ) {
+                    if ( strpos( $twitter_username, '@' ) !== 0 )
+                        $twitter_username = '@' . $twitter_username;
+
+                    $this->output( '<meta name="twitter:card" content="summary"/>',
+                        '<meta name="twitter:site" content=' . $twitter_username . '/>',
+                        '<meta name="twitter:creator" content="' . $twitter_username . '"/>'
+                    );
+                }
+
             }
-
-            $this->output( $ogp->toHTML() );
         }
 
         function head_css()

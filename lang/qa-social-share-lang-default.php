@@ -32,6 +32,10 @@
         'font_icons_semi_rounded_shadowed' => "Font Icons Squared Semi Rounded Shadowed ",
         'font_icons_rounded'               => "Font Icons Squared Rounded  ",
         'font_icons_rounded_shadowed'      => "Font Icons Squared Rounded Shadowed",
+        'enable_opengraph_support'         => "Enable opengraph support",
+        'facebook_app_id'                  => "Facebook Application id",
+        'twitter_handle'                   => "Twitter Handle",
+        'website_desc'                     => "Website description",
     );
 
     /*

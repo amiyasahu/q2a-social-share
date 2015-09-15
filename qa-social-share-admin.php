@@ -15,17 +15,23 @@
                 case qa_sss_opt::SHARE_TEXT_HOME:
                     return;
                     break;
+
                 case qa_sss_opt::FB_BUTTON:
                 case qa_sss_opt::GP_BUTTON:
                 case qa_sss_opt::TW_BUTTON:
                 case qa_sss_opt::BUTTON_STATUS:
                     return true;
                     break;
+
                 case qa_sss_opt::LI_BUTTON:
                 case qa_sss_opt::RE_BUTTON:
                 case qa_sss_opt::VK_BUTTON:
                 case qa_sss_opt::EM_BUTTON:
                     return false;
+                    break;
+
+                case qa_sss_opt::SHARE_TYPE_OPTION:
+                    return qa_sss_opt::SHARE_TYPE_COLORED_BTNS_WITH_ICON;
                     break;
             }
         }
@@ -49,6 +55,10 @@
                 qa_opt( qa_sss_opt::VK_BUTTON, (bool) qa_post_text( qa_sss_opt::VK_BUTTON ) );
                 qa_opt( qa_sss_opt::EM_BUTTON, (bool) qa_post_text( qa_sss_opt::EM_BUTTON ) );
                 qa_opt( qa_sss_opt::BUTTON_STATUS, (bool) qa_post_text( qa_sss_opt::BUTTON_STATUS ) );
+                qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT, (bool) qa_post_text( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) );
+                qa_opt( qa_sss_opt::FACEBOOK_APP_ID, qa_post_text( qa_sss_opt::FACEBOOK_APP_ID ) );
+                qa_opt( qa_sss_opt::TWITTER_HANDLE, qa_post_text( qa_sss_opt::TWITTER_HANDLE ) );
+                qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION, qa_post_text( qa_sss_opt::WEBSITE_DESCRIPTION ) );
 
                 qa_opt( qa_sss_opt::SHARE_TYPE_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_OPTION ) );
                 qa_opt( qa_sss_opt::CUSTOM_CSS, qa_post_text( qa_sss_opt::CUSTOM_CSS ) );
@@ -71,18 +81,22 @@
                 'ok'      => $saved ? qa_lang( 'sss_lang/sss_settings_saved' ) : null,
 
                 'fields'  => array(
-                    qa_sss_opt::SHARE_TEXT_HOME   => $this->get_share_text_home_field(),
-                    qa_sss_opt::SHARE_TEXT        => $this->get_share_text_field(),
-                    qa_sss_opt::FB_BUTTON         => $this->get_fb_button_field(),
-                    qa_sss_opt::GP_BUTTON         => $this->get_gp_button_field(),
-                    qa_sss_opt::TW_BUTTON         => $this->get_tw_button_field(),
-                    qa_sss_opt::LI_BUTTON         => $this->get_li_button_field(),
-                    qa_sss_opt::RE_BUTTON         => $this->get_re_button_field(),
-                    qa_sss_opt::VK_BUTTON         => $this->get_vk_button_field(),
-                    qa_sss_opt::EM_BUTTON         => $this->get_em_button_field(),
-                    qa_sss_opt::BUTTON_STATUS     => $this->get_button_status_field(),
-                    qa_sss_opt::SHARE_TYPE_OPTION => $this->get_share_type_button( $social_share_types ),
-                    qa_sss_opt::CUSTOM_CSS        => $this->get_custom_css_field(),
+                    qa_sss_opt::SHARE_TEXT_HOME           => $this->get_share_text_home_field(),
+                    qa_sss_opt::SHARE_TEXT                => $this->get_share_text_field(),
+                    qa_sss_opt::FB_BUTTON                 => $this->get_fb_button_field(),
+                    qa_sss_opt::GP_BUTTON                 => $this->get_gp_button_field(),
+                    qa_sss_opt::TW_BUTTON                 => $this->get_tw_button_field(),
+                    qa_sss_opt::LI_BUTTON                 => $this->get_li_button_field(),
+                    qa_sss_opt::RE_BUTTON                 => $this->get_re_button_field(),
+                    qa_sss_opt::VK_BUTTON                 => $this->get_vk_button_field(),
+                    qa_sss_opt::EM_BUTTON                 => $this->get_em_button_field(),
+                    qa_sss_opt::BUTTON_STATUS             => $this->get_button_status_field(),
+                    qa_sss_opt::SHARE_TYPE_OPTION         => $this->get_share_type_button( $social_share_types ),
+                    qa_sss_opt::CUSTOM_CSS                => $this->get_custom_css_field(),
+                    qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT => $this->get_enable_opengraph_support_field(),
+                    qa_sss_opt::FACEBOOK_APP_ID           => $this->get_facebook_app_id_field(),
+                    qa_sss_opt::TWITTER_HANDLE            => $this->get_twitter_handle_field(),
+                    qa_sss_opt::WEBSITE_DESCRIPTION       => $this->get_site_description_field(),
                 ),
 
                 'buttons' => array(
@@ -266,6 +280,61 @@
                 'rows'  => 6,
                 'value' => qa_opt( qa_sss_opt::CUSTOM_CSS ),
                 'tags'  => 'name="' . qa_sss_opt::CUSTOM_CSS . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_enable_opengraph_support_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT,
+                'label' => ami_social_share_lang( 'enable_opengraph_support' ),
+                'type'  => 'checkbox',
+                'value' => (int) qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ),
+                'tags'  => 'name="' . qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_facebook_app_id_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::FACEBOOK_APP_ID,
+                'label' => ami_social_share_lang( 'facebook_app_id' ),
+                'value' => qa_html( qa_opt( qa_sss_opt::FACEBOOK_APP_ID ) ),
+                'tags'  => 'name="' . qa_sss_opt::FACEBOOK_APP_ID . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_twitter_handle_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::TWITTER_HANDLE,
+                'label' => ami_social_share_lang( 'twitter_handle' ),
+                'value' => qa_html( qa_opt( qa_sss_opt::TWITTER_HANDLE ) ),
+                'tags'  => 'name="' . qa_sss_opt::TWITTER_HANDLE . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_site_description_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::WEBSITE_DESCRIPTION,
+                'label' => ami_social_share_lang( 'website_desc' ),
+                'type'  => 'textarea',
+                'rows'  => 6,
+                'value' => qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION ),
+                'tags'  => 'name="' . qa_sss_opt::WEBSITE_DESCRIPTION . '"',
             );
         }
 
