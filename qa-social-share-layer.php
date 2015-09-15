@@ -42,8 +42,8 @@
                 if ( !empty( $image_url ) ) {
                     $imageOg = new OpenGraphProtocolImage();
                     $imageOg->setURL( $image_url );
-                    $imageOg->setWidth( 400 );
-                    $imageOg->setHeight( 300 );
+                    $imageOg->setWidth( 1200 );
+                    $imageOg->setHeight( 630 );
                     $ogp->addImage( $imageOg );
                 }
 
