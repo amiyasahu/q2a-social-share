@@ -6,7 +6,7 @@
         {
             parent::head_metas();
 
-            if ( qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) ) {
+            if ( qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) && $this->template != 'admin' ) {
                 if ( in_array( $this->template, array( 'question', 'blog' ) ) ) {
                     $content = $this->content['q_view']['raw']['content'];
                     $image_url = ami_social_get_first_image_from_html( $content );
@@ -28,22 +28,22 @@
 
                 $site_lang = qa_opt( 'site_language' );
                 $locale = $site_lang ? $site_lang : 'en_US';
-                $current_url = qa_opt( 'site_url' ) . qa_request();
-
                 $ogp = new OpenGraphProtocol();
                 $ogp->setLocale( $locale );
                 $ogp->setSiteName( qa_opt( 'site_title' ) );
                 $ogp->setTitle( $this->content['title'] );
                 $ogp->setDescription( $description );
                 $ogp->setType( 'website' );
-                $ogp->setURL( $current_url );
+                $ogp->setURL( qa_path_absolute( qa_request() ) );
                 $ogp->setDeterminer( 'the' );
 
                 if ( !empty( $image_url ) ) {
+                    $image_data = @getimagesize( $image_url );
                     $imageOg = new OpenGraphProtocolImage();
                     $imageOg->setURL( $image_url );
-                    $imageOg->setWidth( 1200 );
-                    $imageOg->setHeight( 630 );
+                    $imageOg->setWidth( !empty( $image_data[0] ) ? $image_data[0] : 1200 );
+                    $imageOg->setHeight( !empty( $image_data[0] ) ? $image_data[0] : 630 );
+                    $imageOg->setType( !empty( $image_data['mime'] ) ? $image_data['mime'] : null );
                     $ogp->addImage( $imageOg );
                 }
 
