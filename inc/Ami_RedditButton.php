@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'icon-reddit';
+            return 'social-icon-reddit';
         }
 
         function getUrlTemplate()

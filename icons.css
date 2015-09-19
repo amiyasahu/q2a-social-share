@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="social-icon-"], [class*=" social-icon-"] {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -23,62 +23,62 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-envelope-o:before {
+.social-icon-envelope-o:before {
     content: "\f003";
 }
 
-.icon-linkedin-square:before {
+.social-icon-linkedin-square:before {
     content: "\f08c";
 }
 
-.icon-twitter:before {
+.social-icon-twitter:before {
     content: "\f099";
 }
 
-.icon-facebook:before {
+.social-icon-facebook:before {
     content: "\f09a";
 }
 
-.icon-pinterest:before {
+.social-icon-pinterest:before {
     content: "\f0d2";
 }
 
-.icon-pinterest-square:before {
+.social-icon-pinterest-square:before {
     content: "\f0d3";
 }
 
-.icon-google-plus-square:before {
+.social-icon-google-plus-square:before {
     content: "\f0d4";
 }
 
-.icon-google-plus:before {
+.social-icon-google-plus:before {
     content: "\f0d5";
 }
 
-.icon-envelope:before {
+.social-icon-envelope:before {
     content: "\f0e0";
 }
 
-.icon-vk:before {
+.social-icon-vk:before {
     content: "\f189";
 }
 
-.icon-envelope-square:before {
+.social-icon-envelope-square:before {
     content: "\f199";
 }
 
-.icon-google:before {
+.social-icon-google:before {
     content: "\f1a0";
 }
 
-.icon-reddit:before {
+.social-icon-reddit:before {
     content: "\f1a1";
 }
 
-.icon-reddit-square:before {
+.social-icon-reddit-square:before {
     content: "\f1a2";
 }
 
-.icon-send-o:before {
+.social-icon-send-o:before {
     content: "\f1d9";
 }

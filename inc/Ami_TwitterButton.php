@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'icon-twitter';
+            return 'social-icon-twitter';
         }
 
         function getUrlTemplate()

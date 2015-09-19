@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'icon-google-plus';
+            return 'social-icon-google-plus';
         }
 
         function getUrlTemplate()

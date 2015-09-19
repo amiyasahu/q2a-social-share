@@ -15,6 +15,8 @@
                     $image_html = $this->content['form_profile']['fields']['avatar']['html'];
                     $image_url = ami_social_get_first_image_from_html( $image_html );
                     $description = $this->content['form_profile']['fields']['about']['value'];
+                    $first_name = $this->content['form_profile']['fields']['name']['value'];
+                    $username = qa_request_part( 1 );
                 } else {
                     $description = qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION );
 
@@ -26,16 +28,26 @@
                     $image_url = qa_opt( 'logo_url' );
                 }
 
+                $image_url = htmlspecialchars_decode( urldecode( $image_url ) );
                 $site_lang = qa_opt( 'site_language' );
                 $locale = $site_lang ? $site_lang : 'en_US';
+
                 $ogp = new OpenGraphProtocol();
                 $ogp->setLocale( $locale );
                 $ogp->setSiteName( qa_opt( 'site_title' ) );
-                $ogp->setTitle( $this->content['title'] );
-                $ogp->setDescription( $description );
+                $ogp->setTitle( strip_tags( $this->content['title'] ) );
+                $ogp->setDescription( strip_tags( $description ) );
                 $ogp->setType( 'website' );
                 $ogp->setURL( qa_path_absolute( qa_request() ) );
                 $ogp->setDeterminer( 'the' );
+
+                if ( $this->template == 'user' ) {
+                    $ogp->setType( 'profile' );
+                    $profile = new OpenGraphProtocolProfile();
+                    $profile->setFirstName( $first_name );
+                    $profile->setUsername( $username );
+                    $this->output( $profile->toHTML() );
+                }
 
                 if ( !empty( $image_url ) ) {
                     $image_data = @getimagesize( $image_url );
@@ -43,7 +55,11 @@
                     $imageOg->setURL( $image_url );
                     $imageOg->setWidth( !empty( $image_data[0] ) ? $image_data[0] : 1200 );
                     $imageOg->setHeight( !empty( $image_data[0] ) ? $image_data[0] : 630 );
-                    $imageOg->setType( !empty( $image_data['mime'] ) ? $image_data['mime'] : null );
+
+                    if ( !empty( $image_data['mime'] ) ) {
+                        $imageOg->setType( $image_data['mime'] );
+                    }
+
                     $ogp->addImage( $imageOg );
                 }
 

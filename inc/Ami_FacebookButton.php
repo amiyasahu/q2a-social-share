@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'icon-facebook';
+            return 'social-icon-facebook';
         }
 
         function getUrlTemplate()

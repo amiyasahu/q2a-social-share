@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'icon-linkedin-square';
+            return 'social-icon-linkedin-square';
         }
 
         function getUrlTemplate()

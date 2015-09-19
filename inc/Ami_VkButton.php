@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'icon-vk';
+            return 'social-icon-vk';
         }
 
         function getUrlTemplate()
