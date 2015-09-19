@@ -22,7 +22,7 @@
 
         function getIcon()
         {
-            return 'social-icon-email';
+            return 'social-icon-envelope';
         }
 
         function getUrlTemplate()

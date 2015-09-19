@@ -18,6 +18,7 @@
                 'url'         => null,
                 'text'        => null,
                 'target'      => null,
+                'title'      => null,
                 'style'       => '',
             );
 

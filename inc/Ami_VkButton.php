@@ -27,16 +27,16 @@
 
         function getUrlTemplate()
         {
-            return qa_sss_opt::VK_URL_TEMPLATE ;
+            return qa_sss_opt::VK_URL_TEMPLATE;
         }
 
         function getShareLink( $args )
         {
             $request = qa_request();
             if ( !empty( $request ) ) {
-                $args['{{page_url}}'] = urlencode( substr( $args['{{page_url}}'], 0, strrpos( $args['{{page_url}}'], '/' ) + 1 ) );
+                $url = qa_path_absolute( qa_request() );
+                $args['{{page_url}}'] = urlencode( substr( $url, 0, strrpos( $url, '/' ) + 1 ) );
             }
-
             return strtr( $this->getUrlTemplate(), $args );
         }
 
