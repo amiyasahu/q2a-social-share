@@ -14,6 +14,7 @@
         const RE_BUTTON = 'ami_sss_btn_re';
         const EM_BUTTON = 'ami_sss_btn_em';
         const VK_BUTTON = 'ami_sss_btn_vk';
+        const WA_BUTTON = 'ami_sss_btn_wa';
         const BUTTON_STATUS = 'ami_sss_btn_status';
 
         const ENABLE_OPEN_GRAPH_SUPPORT = 'ami_sss_enable_opengraph';
@@ -29,6 +30,7 @@
         const RE_URL_TEMPLATE = 'http://www.reddit.com/submit?url={{page_url}}&amp;title={{page_title}}';
         const VK_URL_TEMPLATE = 'http://vkontakte.ru/share.php?url={{page_url}}&amp;title={{page_title}}';
         const EM_URL_TEMPLATE = 'mailto:?subject={{page_title}}&amp;body=Check this out: {{page_title}} - {{page_url}}';
+        const WA_URL_TEMPLATE = 'whatsapp://send" data-text="{{page_title}}" data-href="{{page_url}}';
 
         /*constants for the types of the social buttons */
 

@@ -19,6 +19,7 @@
                 case qa_sss_opt::FB_BUTTON:
                 case qa_sss_opt::GP_BUTTON:
                 case qa_sss_opt::TW_BUTTON:
+                case qa_sss_opt::WA_BUTTON:
                 case qa_sss_opt::BUTTON_STATUS:
                     return true;
                     break;
@@ -54,6 +55,7 @@
                 qa_opt( qa_sss_opt::RE_BUTTON, (bool) qa_post_text( qa_sss_opt::RE_BUTTON ) );
                 qa_opt( qa_sss_opt::VK_BUTTON, (bool) qa_post_text( qa_sss_opt::VK_BUTTON ) );
                 qa_opt( qa_sss_opt::EM_BUTTON, (bool) qa_post_text( qa_sss_opt::EM_BUTTON ) );
+                qa_opt( qa_sss_opt::WA_BUTTON, (bool) qa_post_text( qa_sss_opt::WA_BUTTON ) );
                 qa_opt( qa_sss_opt::BUTTON_STATUS, (bool) qa_post_text( qa_sss_opt::BUTTON_STATUS ) );
                 qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT, (bool) qa_post_text( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) );
                 qa_opt( qa_sss_opt::FACEBOOK_APP_ID, qa_post_text( qa_sss_opt::FACEBOOK_APP_ID ) );
@@ -91,6 +93,7 @@
                     qa_sss_opt::RE_BUTTON                 => $this->get_re_button_field(),
                     qa_sss_opt::VK_BUTTON                 => $this->get_vk_button_field(),
                     qa_sss_opt::EM_BUTTON                 => $this->get_em_button_field(),
+                    qa_sss_opt::WA_BUTTON                 => $this->get_wa_button_field(),
                     qa_sss_opt::BUTTON_STATUS             => $this->get_button_status_field(),
                     qa_sss_opt::SHARE_TYPE_OPTION         => $this->get_share_type_button( $social_share_types ),
                     qa_sss_opt::CUSTOM_CSS                => $this->get_custom_css_field(),
@@ -234,6 +237,20 @@
                 'type'  => 'checkbox',
                 'value' => (int) qa_opt( qa_sss_opt::EM_BUTTON ),
                 'tags'  => 'name="' . qa_sss_opt::EM_BUTTON . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_wa_button_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::WA_BUTTON,
+                'label' => qa_lang( 'sss_lang/whatsapp' ),
+                'type'  => 'checkbox',
+                'value' => (int) qa_opt( qa_sss_opt::WA_BUTTON ),
+                'tags'  => 'name="' . qa_sss_opt::WA_BUTTON . '"',
                 'note'  => qa_lang( 'sss_lang/sharing_btn_enable_note' ),
             );
         }

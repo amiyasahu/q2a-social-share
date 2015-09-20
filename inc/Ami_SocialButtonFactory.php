@@ -34,3 +34,7 @@
     Ami_SocialButtonFactory::register( new Ami_RedditButton( array() ) );
     Ami_SocialButtonFactory::register( new Ami_LinkedInButton( array() ) );
     Ami_SocialButtonFactory::register( new Ami_TwitterButton( array() ) );
+
+    if(qa_is_mobile_probably()){
+        Ami_SocialButtonFactory::register( new Ami_WhatsAppButton( array() ) );
+    }

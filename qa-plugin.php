@@ -32,6 +32,7 @@
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_RedditButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_TwitterButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_VkButton.php';
+    require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_WhatsAppButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialButtonFactory.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialShare.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/opengraph/open-graph-protocol.php';
