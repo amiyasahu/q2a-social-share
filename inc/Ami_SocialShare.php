@@ -18,7 +18,7 @@
                 'url'         => null,
                 'text'        => null,
                 'target'      => null,
-                'title'      => null,
+                'title'       => null,
                 'style'       => '',
             );
 
@@ -54,7 +54,7 @@
 
                 if ( !empty( $social_share ) ) {
 
-                    $url = $social_share->getShareLink( array( '{{page_url}}' => urlencode( $this->url ), '{{page_title}}' => $this->title ) );
+                    $url = $social_share->getShareLink( array( '{{page_url}}' => urlencode( $this->url ), '{{page_title}}' => urlencode( html_entity_decode( $this->title, ENT_COMPAT, 'UTF-8' ) ) ) );
                     $replace_pairs = array(
                         '{{url}}'    => $url,
                         '{{target}}' => $this->target,

@@ -15,11 +15,11 @@
 
         function output_widget( $region, $place, $themeobject, $template, $request, $qa_content )
         {
-            $page_url = urlencode( qa_path_absolute( qa_request() ) );
+            $page_url = qa_path_absolute( qa_request() ) ;
             if ( ( $template == 'question' || $template == 'blog' ) && isset( $qa_content["q_view"] ) ) {
-                $page_title = urlencode( $qa_content["q_view"]["raw"]["title"] );
+                $page_title = $qa_content["q_view"]["raw"]["title"];
             } else {
-                $page_title = urlencode( qa_opt( 'site_title' ) );
+                $page_title = qa_opt( 'site_title' );
             }
 
             $args = array(
