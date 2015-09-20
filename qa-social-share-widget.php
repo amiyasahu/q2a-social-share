@@ -15,7 +15,7 @@
 
         function output_widget( $region, $place, $themeobject, $template, $request, $qa_content )
         {
-            $page_url = urlencode( qa_opt( 'site_url' ) . $request );
+            $page_url = urlencode( qa_path_absolute( qa_request() ) );
             if ( ( $template == 'question' || $template == 'blog' ) && isset( $qa_content["q_view"] ) ) {
                 $page_title = urlencode( $qa_content["q_view"]["raw"]["title"] );
             } else {

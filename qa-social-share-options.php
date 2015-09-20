@@ -21,13 +21,13 @@
         const TWITTER_HANDLE = 'ami_sss_twitter_handle';
         const WEBSITE_DESCRIPTION = 'ami_sss_website_desc';
 
-        const GP_URL_TEMPLATE = 'https://plus.google.com/share?url={{page_url}}" ';
-        const FB_URL_TEMPLATE = 'https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;ref=fbshare&amp;t={{page_title}}" ';
-        const TW_URL_TEMPLATE = 'https://twitter.com/intent/tweet?original_referer={{page_url}}&amp;text={{page_title}}&amp;url={{page_url}}" ';
-        const LI_URL_TEMPLATE = 'http://www.linkedin.com/shareArticle?mini=true&amp;url={{page_url}}&amp;title={{page_title}}&amp;summary={{page_title}}" ';
-        const RE_URL_TEMPLATE = 'http://www.reddit.com/submit?url={{page_url}}&amp;title={{page_title}}" ';
-        const VK_URL_TEMPLATE = 'http://vkontakte.ru/share.php?url={{page_url}}&amp;title={{page_title}}" ';
-        const EM_URL_TEMPLATE = 'mailto: ?subject={{page_title}}&amp;body=Check this out: {{page_title}} - {{page_url}}" ';
+        const GP_URL_TEMPLATE = 'https://plus.google.com/share?url={{page_url}}';
+        const FB_URL_TEMPLATE = 'https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;ref=fbshare&amp;t={{page_title}}';
+        const TW_URL_TEMPLATE = 'https://twitter.com/intent/tweet?text={{page_title}}&amp;url={{page_url}}';
+        const LI_URL_TEMPLATE = 'http://www.linkedin.com/shareArticle?mini=true&amp;url={{page_url}}&amp;title={{page_title}}&amp;summary={{page_title}}';
+        const RE_URL_TEMPLATE = 'http://www.reddit.com/submit?url={{page_url}}&amp;title={{page_title}}';
+        const VK_URL_TEMPLATE = 'http://vkontakte.ru/share.php?url={{page_url}}&amp;title={{page_title}}';
+        const EM_URL_TEMPLATE = 'mailto:?subject={{page_title}}&amp;body=Check this out: {{page_title}} - {{page_url}}';
 
         /*constants for the types of the social buttons */
 
@@ -39,7 +39,7 @@
         const SHARE_TYPE_FI_SQ = 'squared_btns_with_icon';
         const SHARE_TYPE_FI_SEMI_ROUNDED = 'semi_rounded_buttons';
         const SHARE_TYPE_FI_ROUNDED = 'rounded_buttons_with_icon';
-        const SHARE_TYPE_ANIMATED_FI = 'animated_btns_with_icon';
+        const SHARE_TYPE_ANIMATED_FI = 'animated_buttons_with_icon';
 
         /*templates depending which type we are using */
         const SHARE_TYPE_NORMAL_TEMPLATE = '{{separator}} <a href="{{url}}" target="_blank" rel="external nofollow" class="{{class}}" title="{{title}}">{{text}}</a>';

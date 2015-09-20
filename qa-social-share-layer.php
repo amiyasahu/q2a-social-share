@@ -102,7 +102,7 @@
         function q_view_buttons( $q_view )
         {
             if ( (int) qa_opt( qa_sss_opt::BUTTON_STATUS ) ) {
-                $page_url = urlencode( qa_opt( 'site_url' ) . $this->request );
+                $page_url = urlencode( qa_path_absolute( qa_request() ) );
                 $page_title = urlencode( $q_view['raw']['title'] );
 
                 $args = array(
