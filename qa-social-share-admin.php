@@ -59,6 +59,7 @@
                 qa_opt( qa_sss_opt::FACEBOOK_APP_ID, qa_post_text( qa_sss_opt::FACEBOOK_APP_ID ) );
                 qa_opt( qa_sss_opt::TWITTER_HANDLE, qa_post_text( qa_sss_opt::TWITTER_HANDLE ) );
                 qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION, qa_post_text( qa_sss_opt::WEBSITE_DESCRIPTION ) );
+                qa_opt( qa_sss_opt::DEFAULT_SHARE_IMAGE, qa_post_text( qa_sss_opt::DEFAULT_SHARE_IMAGE ) );
 
                 qa_opt( qa_sss_opt::SHARE_TYPE_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_OPTION ) );
                 qa_opt( qa_sss_opt::CUSTOM_CSS, qa_post_text( qa_sss_opt::CUSTOM_CSS ) );
@@ -94,6 +95,7 @@
                     qa_sss_opt::SHARE_TYPE_OPTION         => $this->get_share_type_button( $social_share_types ),
                     qa_sss_opt::CUSTOM_CSS                => $this->get_custom_css_field(),
                     qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT => $this->get_enable_opengraph_support_field(),
+                    qa_sss_opt::DEFAULT_SHARE_IMAGE       => $this->get_default_image_field(),
                     qa_sss_opt::FACEBOOK_APP_ID           => $this->get_facebook_app_id_field(),
                     qa_sss_opt::TWITTER_HANDLE            => $this->get_twitter_handle_field(),
                     qa_sss_opt::WEBSITE_DESCRIPTION       => $this->get_site_description_field(),
@@ -320,6 +322,19 @@
                 'label' => ami_social_share_lang( 'twitter_handle' ),
                 'value' => qa_html( qa_opt( qa_sss_opt::TWITTER_HANDLE ) ),
                 'tags'  => 'name="' . qa_sss_opt::TWITTER_HANDLE . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_default_image_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::DEFAULT_SHARE_IMAGE,
+                'label' => ami_social_share_lang( 'default_share_image' ),
+                'value' => qa_html( qa_opt( qa_sss_opt::DEFAULT_SHARE_IMAGE ) ),
+                'tags'  => 'name="' . qa_sss_opt::DEFAULT_SHARE_IMAGE . '"',
             );
         }
 

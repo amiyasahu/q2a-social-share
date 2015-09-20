@@ -20,6 +20,7 @@
         const FACEBOOK_APP_ID = 'ami_sss_fb_id';
         const TWITTER_HANDLE = 'ami_sss_twitter_handle';
         const WEBSITE_DESCRIPTION = 'ami_sss_website_desc';
+        const DEFAULT_SHARE_IMAGE = 'ami_sss_default_share_image';
 
         const GP_URL_TEMPLATE = 'https://plus.google.com/share?url={{page_url}}';
         const FB_URL_TEMPLATE = 'https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;ref=fbshare&amp;t={{page_title}}';

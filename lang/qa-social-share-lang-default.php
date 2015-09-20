@@ -36,6 +36,7 @@
         'facebook_app_id'                  => "Facebook Application id",
         'twitter_handle'                   => "Twitter Handle",
         'website_desc'                     => "Website description",
+        'default_share_image'              => "Share image for the home page and incase no image present in the post",
     );
 
     /*

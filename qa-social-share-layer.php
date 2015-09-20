@@ -25,6 +25,12 @@
                 }
 
                 if ( empty( $image_url ) ) {
+                    //if the image URL is not found then take the default from the admin panel
+                    $image_url = qa_opt( qa_sss_opt::DEFAULT_SHARE_IMAGE );
+                }
+
+                if ( empty( $image_url ) ) {
+                    //if still empty then consider the logo URL
                     $image_url = qa_opt( 'logo_url' );
                 }
 
