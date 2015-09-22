@@ -41,7 +41,7 @@
                     break;
 
                 case qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION:
-                    return qa_sss_opt::SHARE_TYPE_FI_ROUNDED;
+                    return qa_sss_opt::SHARE_TYPE_FI_SEMI_ROUNDED;
                     break;
             }
         }
