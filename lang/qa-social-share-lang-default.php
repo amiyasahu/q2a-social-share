@@ -21,7 +21,10 @@
         'save_changes'                     => 'Save Changes ',
         'custom_css'                       => 'Add your costum css here',
         'default_share_text'               => 'Share On ',
-        'choose_share_type'                => 'Choose the share type ',
+        'choose_share_type_for_q_desktop'  => 'Choose the share type for questions / blogs on desktop',
+        'choose_share_type_for_q_mobile'   => 'Choose the share type for questions / blogs on mobile',
+        'choose_share_type_for_w_desktop'  => 'Choose the share type for widget on desktop',
+        'choose_share_type_for_w_mobile'   => 'Choose the share type for widget on mobile',
         'or'                               => 'or ',
         /*share types options */
         'image_icons'                      => 'Image icons ',

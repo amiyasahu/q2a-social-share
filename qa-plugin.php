@@ -36,8 +36,7 @@
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialButtonFactory.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialShare.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/opengraph/open-graph-protocol.php';
-
-
+    
     qa_register_plugin_layer( 'qa-social-share-layer.php', 'Social Sharing Layer' );
     qa_register_plugin_module( 'module', 'qa-social-share-admin.php', 'qa_social_share_admin', 'Social Sharing Admin' );
     qa_register_plugin_module( 'widget', 'qa-social-share-widget.php', 'qa_social_share_widget', 'Social Sharing Widget' );

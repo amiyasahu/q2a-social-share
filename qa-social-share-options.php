@@ -34,7 +34,11 @@
 
         /*constants for the types of the social buttons */
 
-        const SHARE_TYPE_OPTION = 'ami_sss_type_option';
+        const SHARE_TYPE_POST_DESKTOP_OPTION = 'ami_sss_type_q_desktop_opt';
+        const SHARE_TYPE_POST_MOBILE_OPTION = 'ami_sss_type_q_mob_opt';
+        const SHARE_TYPE_WIDGET_DESKTOP_OPTION = 'ami_sss_type_w_desktop_opt';
+        const SHARE_TYPE_WIDGET_MOBILE_OPTION = 'ami_sss_type_w_mob_opt';
+
         const SHARE_TYPE_IMAGE = 'image';
         const SHARE_TYPE_TEXT = 'text_only';
         const SHARE_TYPE_COLORED_BTNS = 'colored_buttons';

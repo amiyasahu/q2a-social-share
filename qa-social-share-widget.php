@@ -28,7 +28,7 @@
                 'template'    => $template,
                 'themeobject' => $themeobject,
                 'target'      => '_blank',
-                'style'       => qa_opt( qa_sss_opt::SHARE_TYPE_OPTION ),
+                'style'       => qa_opt( qa_is_mobile_probably() ? qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION : qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION ),
             );
 
             $social_share = new Ami_SocialShare( $args );
