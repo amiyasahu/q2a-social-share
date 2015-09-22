@@ -17,8 +17,9 @@
         exit;
     }
 
-    define( 'SOCIAL_SHARE_PLUGIN_DIR', dirname( __FILE__ ) );
-    define( 'SOCIAL_SHARE_PLUGIN_DIR_NAME', basename( dirname( __FILE__ ) ) );
+    @define( 'SOCIAL_SHARE_PLUGIN_DIR', dirname( __FILE__ ) );
+    @define( 'SOCIAL_SHARE_PLUGIN_DIR_NAME', basename( dirname( __FILE__ ) ) );
+    @define( 'SOCIAL_SHARE_PLUGIN_VERSION', "1.6.0" );
 
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/qa-social-share-utils.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/qa-social-share-options.php';
