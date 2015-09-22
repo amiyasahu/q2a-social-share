@@ -98,7 +98,7 @@
         {
             parent::head_css();
 
-            $this->output( '<link rel="stylesheet" href="' . qa_path_to_root() . 'qa-plugin/' . SOCIAL_SHARE_PLUGIN_DIR_NAME . '/css/icons.css?'.SOCIAL_SHARE_PLUGIN_VERSION.'">' );
+            //$this->output( '<link rel="stylesheet" href="' . qa_path_to_root() . 'qa-plugin/' . SOCIAL_SHARE_PLUGIN_DIR_NAME . '/css/icons.css?'.SOCIAL_SHARE_PLUGIN_VERSION.'">' );
             $this->output( '<link rel="stylesheet" href="' . qa_path_to_root() . 'qa-plugin/' . SOCIAL_SHARE_PLUGIN_DIR_NAME . '/css/social-share.css?'.SOCIAL_SHARE_PLUGIN_VERSION.'">' );
 
             $style_open = '<style type="text/css">';
