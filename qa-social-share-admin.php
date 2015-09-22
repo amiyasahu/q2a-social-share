@@ -1,4 +1,7 @@
 <?php
+    if ( !defined( 'QA_VERSION' ) ) { // don't allow this page to be requested directly from browser
+        exit;
+    }
 
     class qa_social_share_admin
     {
@@ -19,6 +22,7 @@
                 case qa_sss_opt::FB_BUTTON:
                 case qa_sss_opt::GP_BUTTON:
                 case qa_sss_opt::TW_BUTTON:
+                case qa_sss_opt::WA_BUTTON:
                 case qa_sss_opt::BUTTON_STATUS:
                     return true;
                     break;
@@ -30,8 +34,14 @@
                     return false;
                     break;
 
-                case qa_sss_opt::SHARE_TYPE_OPTION:
+                case qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION:
+                case qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION:
+                case qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION:
                     return qa_sss_opt::SHARE_TYPE_COLORED_BTNS_WITH_ICON;
+                    break;
+
+                case qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION:
+                    return qa_sss_opt::SHARE_TYPE_FI_ROUNDED;
                     break;
             }
         }
@@ -54,6 +64,7 @@
                 qa_opt( qa_sss_opt::RE_BUTTON, (bool) qa_post_text( qa_sss_opt::RE_BUTTON ) );
                 qa_opt( qa_sss_opt::VK_BUTTON, (bool) qa_post_text( qa_sss_opt::VK_BUTTON ) );
                 qa_opt( qa_sss_opt::EM_BUTTON, (bool) qa_post_text( qa_sss_opt::EM_BUTTON ) );
+                qa_opt( qa_sss_opt::WA_BUTTON, (bool) qa_post_text( qa_sss_opt::WA_BUTTON ) );
                 qa_opt( qa_sss_opt::BUTTON_STATUS, (bool) qa_post_text( qa_sss_opt::BUTTON_STATUS ) );
                 qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT, (bool) qa_post_text( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) );
                 qa_opt( qa_sss_opt::FACEBOOK_APP_ID, qa_post_text( qa_sss_opt::FACEBOOK_APP_ID ) );
@@ -61,7 +72,10 @@
                 qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION, qa_post_text( qa_sss_opt::WEBSITE_DESCRIPTION ) );
                 qa_opt( qa_sss_opt::DEFAULT_SHARE_IMAGE, qa_post_text( qa_sss_opt::DEFAULT_SHARE_IMAGE ) );
 
-                qa_opt( qa_sss_opt::SHARE_TYPE_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_OPTION ) );
+                qa_opt( qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION ) );
+                qa_opt( qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION ) );
+                qa_opt( qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION ) );
+                qa_opt( qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION, qa_post_text( qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION ) );
                 qa_opt( qa_sss_opt::CUSTOM_CSS, qa_post_text( qa_sss_opt::CUSTOM_CSS ) );
 
                 $saved = true;
@@ -82,23 +96,27 @@
                 'ok'      => $saved ? qa_lang( 'sss_lang/sss_settings_saved' ) : null,
 
                 'fields'  => array(
-                    qa_sss_opt::SHARE_TEXT_HOME           => $this->get_share_text_home_field(),
-                    qa_sss_opt::SHARE_TEXT                => $this->get_share_text_field(),
-                    qa_sss_opt::FB_BUTTON                 => $this->get_fb_button_field(),
-                    qa_sss_opt::GP_BUTTON                 => $this->get_gp_button_field(),
-                    qa_sss_opt::TW_BUTTON                 => $this->get_tw_button_field(),
-                    qa_sss_opt::LI_BUTTON                 => $this->get_li_button_field(),
-                    qa_sss_opt::RE_BUTTON                 => $this->get_re_button_field(),
-                    qa_sss_opt::VK_BUTTON                 => $this->get_vk_button_field(),
-                    qa_sss_opt::EM_BUTTON                 => $this->get_em_button_field(),
-                    qa_sss_opt::BUTTON_STATUS             => $this->get_button_status_field(),
-                    qa_sss_opt::SHARE_TYPE_OPTION         => $this->get_share_type_button( $social_share_types ),
-                    qa_sss_opt::CUSTOM_CSS                => $this->get_custom_css_field(),
-                    qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT => $this->get_enable_opengraph_support_field(),
-                    qa_sss_opt::DEFAULT_SHARE_IMAGE       => $this->get_default_image_field(),
-                    qa_sss_opt::FACEBOOK_APP_ID           => $this->get_facebook_app_id_field(),
-                    qa_sss_opt::TWITTER_HANDLE            => $this->get_twitter_handle_field(),
-                    qa_sss_opt::WEBSITE_DESCRIPTION       => $this->get_site_description_field(),
+                    qa_sss_opt::SHARE_TEXT_HOME                  => $this->get_share_text_home_field(),
+                    qa_sss_opt::SHARE_TEXT                       => $this->get_share_text_field(),
+                    qa_sss_opt::FB_BUTTON                        => $this->get_fb_button_field(),
+                    qa_sss_opt::GP_BUTTON                        => $this->get_gp_button_field(),
+                    qa_sss_opt::TW_BUTTON                        => $this->get_tw_button_field(),
+                    qa_sss_opt::LI_BUTTON                        => $this->get_li_button_field(),
+                    qa_sss_opt::RE_BUTTON                        => $this->get_re_button_field(),
+                    qa_sss_opt::VK_BUTTON                        => $this->get_vk_button_field(),
+                    qa_sss_opt::EM_BUTTON                        => $this->get_em_button_field(),
+                    qa_sss_opt::WA_BUTTON                        => $this->get_wa_button_field(),
+                    qa_sss_opt::BUTTON_STATUS                    => $this->get_button_status_field(),
+                    qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION   => $this->get_share_type_q_desktop_button( $social_share_types ),
+                    qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION    => $this->get_share_type_q_mobile_button( $social_share_types ),
+                    qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION => $this->get_share_type_w_desktop_button( $social_share_types ),
+                    qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION  => $this->get_share_type_w_mobile_button( $social_share_types ),
+                    qa_sss_opt::CUSTOM_CSS                       => $this->get_custom_css_field(),
+                    qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT        => $this->get_enable_opengraph_support_field(),
+                    qa_sss_opt::DEFAULT_SHARE_IMAGE              => $this->get_default_image_field(),
+                    qa_sss_opt::FACEBOOK_APP_ID                  => $this->get_facebook_app_id_field(),
+                    qa_sss_opt::TWITTER_HANDLE                   => $this->get_twitter_handle_field(),
+                    qa_sss_opt::WEBSITE_DESCRIPTION              => $this->get_site_description_field(),
                 ),
 
                 'buttons' => array(
@@ -234,6 +252,20 @@
                 'type'  => 'checkbox',
                 'value' => (int) qa_opt( qa_sss_opt::EM_BUTTON ),
                 'tags'  => 'name="' . qa_sss_opt::EM_BUTTON . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_wa_button_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::WA_BUTTON,
+                'label' => qa_lang( 'sss_lang/whatsapp' ),
+                'type'  => 'checkbox',
+                'value' => (int) qa_opt( qa_sss_opt::WA_BUTTON ),
+                'tags'  => 'name="' . qa_sss_opt::WA_BUTTON . '"',
                 'note'  => qa_lang( 'sss_lang/sharing_btn_enable_note' ),
             );
         }
@@ -257,14 +289,71 @@
          *
          * @return array
          */
-        public function get_share_type_button( $social_share_types )
+        public function get_share_type_q_desktop_button( $social_share_types )
         {
             return array(
-                'id'       => qa_sss_opt::SHARE_TYPE_OPTION,
-                'label'    => qa_lang( 'sss_lang/choose_share_type' ),
+                'id'       => qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION,
+                'label'    => qa_lang( 'sss_lang/choose_share_type_for_q_desktop' ),
                 'type'     => 'select',
-                'value'    => qa_opt( qa_sss_opt::SHARE_TYPE_OPTION ),
-                'tags'     => 'name="' . qa_sss_opt::SHARE_TYPE_OPTION . '"',
+                'value'    => qa_opt( qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION ),
+                'tags'     => 'name="' . qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION . '"',
+                'options'  => $social_share_types,
+                'match_by' => 'key',
+            );
+        }
+
+
+        /**
+         * @param $social_share_types
+         *
+         * @return array
+         */
+        public function get_share_type_q_mobile_button( $social_share_types )
+        {
+            return array(
+                'id'       => qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION,
+                'label'    => qa_lang( 'sss_lang/choose_share_type_for_q_mobile' ),
+                'type'     => 'select',
+                'value'    => qa_opt( qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION ),
+                'tags'     => 'name="' . qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION . '"',
+                'options'  => $social_share_types,
+                'match_by' => 'key',
+            );
+        }
+
+
+        /**
+         * @param $social_share_types
+         *
+         * @return array
+         */
+        public function get_share_type_w_desktop_button( $social_share_types )
+        {
+            return array(
+                'id'       => qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION,
+                'label'    => qa_lang( 'sss_lang/choose_share_type_for_w_desktop' ),
+                'type'     => 'select',
+                'value'    => qa_opt( qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION ),
+                'tags'     => 'name="' . qa_sss_opt::SHARE_TYPE_WIDGET_DESKTOP_OPTION . '"',
+                'options'  => $social_share_types,
+                'match_by' => 'key',
+            );
+        }
+
+
+        /**
+         * @param $social_share_types
+         *
+         * @return array
+         */
+        public function get_share_type_w_mobile_button( $social_share_types )
+        {
+            return array(
+                'id'       => qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION,
+                'label'    => qa_lang( 'sss_lang/choose_share_type_for_w_mobile' ),
+                'type'     => 'select',
+                'value'    => qa_opt( qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION ),
+                'tags'     => 'name="' . qa_sss_opt::SHARE_TYPE_WIDGET_MOBILE_OPTION . '"',
                 'options'  => $social_share_types,
                 'match_by' => 'key',
             );

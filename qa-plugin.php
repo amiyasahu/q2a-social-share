@@ -4,8 +4,8 @@
         Plugin Name: Q2A Social Sharing
         Plugin URI: https://github.com/amiyasahu/q2a-social-share/
         Plugin Description: Adds Clickable Social Sharing Buttons Below Questions
-        Plugin Version: 1.5.0
-        Plugin Date: 2015-09-21
+        Plugin Version: 1.6.0
+        Plugin Date: 2015-09-22
         Plugin Author: Amiya Sahu
         Plugin Author URI: http://amiyasahu.com
         Plugin License: GPLv2
@@ -32,11 +32,11 @@
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_RedditButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_TwitterButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_VkButton.php';
+    require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_WhatsAppButton.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialButtonFactory.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/inc/Ami_SocialShare.php';
     require_once SOCIAL_SHARE_PLUGIN_DIR . '/opengraph/open-graph-protocol.php';
-
-
+    
     qa_register_plugin_layer( 'qa-social-share-layer.php', 'Social Sharing Layer' );
     qa_register_plugin_module( 'module', 'qa-social-share-admin.php', 'qa_social_share_admin', 'Social Sharing Admin' );
     qa_register_plugin_module( 'widget', 'qa-social-share-widget.php', 'qa_social_share_widget', 'Social Sharing Widget' );

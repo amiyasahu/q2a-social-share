@@ -39,7 +39,8 @@
                     qa_sss_opt::LI_BUTTON,
                     qa_sss_opt::RE_BUTTON,
                     qa_sss_opt::EM_BUTTON,
-                    qa_sss_opt::VK_BUTTON )
+                    qa_sss_opt::VK_BUTTON,
+                    qa_sss_opt::WA_BUTTON)
             );
 
             foreach ( $enabled_share as $key => $value ) {

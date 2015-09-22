@@ -1,4 +1,7 @@
 <?php
+    if ( !defined( 'QA_VERSION' ) ) { // don't allow this page to be requested directly from browser
+        exit;
+    }
 
     class qa_sss_opt
     {
@@ -14,6 +17,7 @@
         const RE_BUTTON = 'ami_sss_btn_re';
         const EM_BUTTON = 'ami_sss_btn_em';
         const VK_BUTTON = 'ami_sss_btn_vk';
+        const WA_BUTTON = 'ami_sss_btn_wa';
         const BUTTON_STATUS = 'ami_sss_btn_status';
 
         const ENABLE_OPEN_GRAPH_SUPPORT = 'ami_sss_enable_opengraph';
@@ -29,10 +33,15 @@
         const RE_URL_TEMPLATE = 'http://www.reddit.com/submit?url={{page_url}}&amp;title={{page_title}}';
         const VK_URL_TEMPLATE = 'http://vkontakte.ru/share.php?url={{page_url}}&amp;title={{page_title}}';
         const EM_URL_TEMPLATE = 'mailto:?subject={{page_title}}&amp;body=Check this out: {{page_title}} - {{page_url}}';
+        const WA_URL_TEMPLATE = 'whatsapp://send?text={{page_title}} - {{page_url}}';
 
         /*constants for the types of the social buttons */
 
-        const SHARE_TYPE_OPTION = 'ami_sss_type_option';
+        const SHARE_TYPE_POST_DESKTOP_OPTION = 'ami_sss_type_q_desktop_opt';
+        const SHARE_TYPE_POST_MOBILE_OPTION = 'ami_sss_type_q_mob_opt';
+        const SHARE_TYPE_WIDGET_DESKTOP_OPTION = 'ami_sss_type_w_desktop_opt';
+        const SHARE_TYPE_WIDGET_MOBILE_OPTION = 'ami_sss_type_w_mob_opt';
+
         const SHARE_TYPE_IMAGE = 'image';
         const SHARE_TYPE_TEXT = 'text_only';
         const SHARE_TYPE_COLORED_BTNS = 'colored_buttons';
