@@ -28,7 +28,7 @@
         public function generateShareButtons()
         {
             $this->themeobject->output( '<div class="social-share-text">' );
-            $this->themeobject->output( qa_opt( qa_sss_opt::SHARE_TEXT ) );
+            $this->themeobject->output( qa_opt( empty(qa_request()) ? qa_sss_opt::SHARE_TEXT_HOME : qa_sss_opt::SHARE_TEXT ) );
             $this->themeobject->output( '</div>' );
 
             $enabled_share = qa_get_options(
