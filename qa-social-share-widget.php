@@ -36,9 +36,9 @@
 
             $social_share = new Ami_SocialShare( $args );
 
-            $this->output( '<div class="social-wrapper">' );
+            $themeobject->output( '<div class="social-wrapper">' );
             $social_share->generateShareButtons();
-            $this->output( '</div>' );
+            $themeobject->output( '</div>' );
         }
 
     }
