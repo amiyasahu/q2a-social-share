@@ -11,7 +11,7 @@
 
             if ( qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) && $this->template != 'admin' ) {
                 if ( in_array( $this->template, array( 'question', 'blog' ) ) ) {
-                    $content = $this->content['q_view']['raw']['content'];
+                    $content = @$this->content['q_view']['raw']['content'];
                     $image_url = ami_social_get_first_image_from_html( $content );
                     $description = @$this->content['description'];
                 } else if ( $this->template == 'user' ) {
