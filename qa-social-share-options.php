@@ -18,6 +18,8 @@
         const EM_BUTTON = 'ami_sss_btn_em';
         const VK_BUTTON = 'ami_sss_btn_vk';
         const WA_BUTTON = 'ami_sss_btn_wa';
+        const ST_BUTTON = 'ami_sss_btn_st';
+        const TG_BUTTON = 'ami_sss_btn_tg';
         const BUTTON_STATUS = 'ami_sss_btn_status';
 
         const ENABLE_OPEN_GRAPH_SUPPORT = 'ami_sss_enable_opengraph';
@@ -34,6 +36,8 @@
         const VK_URL_TEMPLATE = 'http://vkontakte.ru/share.php?url={{page_url}}&amp;title={{page_title}}';
         const EM_URL_TEMPLATE = 'mailto:?subject={{page_title}}&amp;body=Check this out: {{page_title}} - {{page_url}}';
         const WA_URL_TEMPLATE = 'whatsapp://send?text={{page_title}} - {{page_url}}';
+        const TG_URL_TEMPLATE = 'tg://msg?text={{page_title}} - {{page_url}}';
+        const ST_URL_TEMPLATE = 'http://www.stumbleupon.com/submit?url={{page_url}}&title={{page_title}}';
 
         /*constants for the types of the social buttons */
 

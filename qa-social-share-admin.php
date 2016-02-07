@@ -31,6 +31,8 @@
                 case qa_sss_opt::RE_BUTTON:
                 case qa_sss_opt::VK_BUTTON:
                 case qa_sss_opt::EM_BUTTON:
+                case qa_sss_opt::ST_BUTTON:
+                case qa_sss_opt::TG_BUTTON:
                     return false;
                     break;
 
@@ -65,6 +67,8 @@
                 qa_opt( qa_sss_opt::VK_BUTTON, (bool) qa_post_text( qa_sss_opt::VK_BUTTON ) );
                 qa_opt( qa_sss_opt::EM_BUTTON, (bool) qa_post_text( qa_sss_opt::EM_BUTTON ) );
                 qa_opt( qa_sss_opt::WA_BUTTON, (bool) qa_post_text( qa_sss_opt::WA_BUTTON ) );
+                qa_opt( qa_sss_opt::ST_BUTTON, (bool) qa_post_text( qa_sss_opt::ST_BUTTON ) );
+                qa_opt( qa_sss_opt::TG_BUTTON, (bool) qa_post_text( qa_sss_opt::TG_BUTTON ) );
                 qa_opt( qa_sss_opt::BUTTON_STATUS, (bool) qa_post_text( qa_sss_opt::BUTTON_STATUS ) );
                 qa_opt( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT, (bool) qa_post_text( qa_sss_opt::ENABLE_OPEN_GRAPH_SUPPORT ) );
                 qa_opt( qa_sss_opt::FACEBOOK_APP_ID, qa_post_text( qa_sss_opt::FACEBOOK_APP_ID ) );
@@ -104,8 +108,10 @@
                     qa_sss_opt::LI_BUTTON                        => $this->get_li_button_field(),
                     qa_sss_opt::RE_BUTTON                        => $this->get_re_button_field(),
                     qa_sss_opt::VK_BUTTON                        => $this->get_vk_button_field(),
+                    qa_sss_opt::ST_BUTTON                        => $this->get_st_button_field(),
                     qa_sss_opt::EM_BUTTON                        => $this->get_em_button_field(),
                     qa_sss_opt::WA_BUTTON                        => $this->get_wa_button_field(),
+                    qa_sss_opt::TG_BUTTON                        => $this->get_tg_button_field(),
                     qa_sss_opt::BUTTON_STATUS                    => $this->get_button_status_field(),
                     qa_sss_opt::SHARE_TYPE_POST_DESKTOP_OPTION   => $this->get_share_type_q_desktop_button( $social_share_types ),
                     qa_sss_opt::SHARE_TYPE_POST_MOBILE_OPTION    => $this->get_share_type_q_mobile_button( $social_share_types ),
@@ -244,6 +250,20 @@
         /**
          * @return array
          */
+        public function get_st_button_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::ST_BUTTON,
+                'label' => qa_lang( 'sss_lang/st' ),
+                'type'  => 'checkbox',
+                'value' => (int) qa_opt( qa_sss_opt::ST_BUTTON ),
+                'tags'  => 'name="' . qa_sss_opt::ST_BUTTON . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
         public function get_em_button_field()
         {
             return array(
@@ -266,6 +286,20 @@
                 'type'  => 'checkbox',
                 'value' => (int) qa_opt( qa_sss_opt::WA_BUTTON ),
                 'tags'  => 'name="' . qa_sss_opt::WA_BUTTON . '"',
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_tg_button_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::TG_BUTTON,
+                'label' => qa_lang( 'sss_lang/telegram' ),
+                'type'  => 'checkbox',
+                'value' => (int) qa_opt( qa_sss_opt::TG_BUTTON ),
+                'tags'  => 'name="' . qa_sss_opt::TG_BUTTON . '"',
                 'note'  => qa_lang( 'sss_lang/sharing_btn_enable_note' ),
             );
         }

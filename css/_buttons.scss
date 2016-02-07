@@ -204,6 +204,30 @@
   border-color: rgba(0, 0, 0, 0.2)
 }
 
+.btn-st {
+  color: #fff;
+  background-color: #EB4924;
+  border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-st:hover, .btn-st:focus, .btn-st:active {
+  color: #fff;
+  background-color: darken(#EB4924, 5%);
+  border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-tg {
+  color: #fff;
+  background-color: #36ADE1;
+  border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-tg:hover, .btn-tg:focus, .btn-tg:active {
+  color: #fff;
+  background-color: darken(#36ADE1, 5%);
+  border-color: rgba(0, 0, 0, 0.2)
+}
+
 .btn-img {
   background-image: url('../images/ma_share_buttons_full_em.png');
   background-repeat: no-repeat;

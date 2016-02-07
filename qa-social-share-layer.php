@@ -121,7 +121,21 @@
 
             $style_open = '<style type="text/css">';
             $style_close = '</style>';
-            $style_final = $style_open . qa_opt( qa_sss_opt::CUSTOM_CSS ) . $style_close;
+            $style_final = $style_open . qa_opt( qa_sss_opt::CUSTOM_CSS ) ;
+
+            if(strtolower(qa_opt('site_theme')) == 'snow'){
+                $style_final .= ".qa-widget-side .btn-share.with-icon .btn {width: 145px; }" ;
+            }
+
+            if(strtolower(qa_opt('site_theme')) == 'candy'){
+                $style_final .= ".qa-widget-side .btn-share.with-icon .btn {width: 90px; }" ;
+            }
+
+            if(strtolower(qa_opt('site_theme')) == 'classic'){
+                $style_final .= ".qa-widget-side .btn-share.with-icon .btn {width: 105px; }" ;
+            }
+
+            $style_final .= $style_close;
             $this->output( $style_final );
 
         }
