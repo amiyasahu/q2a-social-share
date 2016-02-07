@@ -15,16 +15,16 @@
                     $image_url = ami_social_get_first_image_from_html( $content );
                     $description = @$this->content['description'];
                 } else if ( $this->template == 'user' ) {
-                    $image_html = $this->content['form_profile']['fields']['avatar']['html'];
-                    $image_url = ami_social_get_first_image_from_html( $image_html );
-                    $description = $this->content['form_profile']['fields']['about']['value'];
-                    $first_name = $this->content['form_profile']['fields']['name']['value'];
+                    $image_html = @$this->content['form_profile']['fields']['avatar']['html'];
+                    $image_url  = ami_social_get_first_image_from_html( $image_html );
+                    $description = @$this->content['form_profile']['fields']['about']['value'];
+                    $first_name  = @$this->content['form_profile']['fields']['name']['value'];
                     $username = qa_request_part( 1 );
                 } else {
                     $description = qa_opt( qa_sss_opt::WEBSITE_DESCRIPTION );
 
                     if ( empty( $description ) )
-                        $description = $this->content['sidebar'];
+                        $description = @$this->content['sidebar'];
                 }
 
                 if ( empty( $image_url ) ) {
@@ -44,7 +44,11 @@
                 $ogp = new OpenGraphProtocol();
                 $ogp->setLocale( $locale );
                 $ogp->setSiteName( qa_opt( 'site_title' ) );
-                $ogp->setTitle( strip_tags( $this->content['title'] ) );
+                
+                if ( isset($this->content['title']) ) {
+                    $ogp->setTitle( strip_tags( $this->content['title'] ) );
+                }
+                
                 $ogp->setDescription( strip_tags( $description ) );
                 $ogp->setType( 'website' );
                 $ogp->setURL( qa_path_absolute( qa_request() ) );
@@ -55,7 +59,14 @@
                     $profile = new OpenGraphProtocolProfile();
                     $profile->setFirstName( $first_name );
                     $profile->setUsername( $username );
-                    $this->output( $profile->toHTML() );
+
+                    $ogp_html_arr = explode( PHP_EOL, $profile->toHTML() );
+                    
+                    if(count($ogp_html_arr)) {
+                        foreach ($ogp_html_arr as $key => $ogp_html) {
+                            $this->output_raw( $ogp_html );
+                        }
+                    }
                 }
 
                 if ( !empty( $image_url ) ) {
@@ -72,23 +83,30 @@
                     $ogp->addImage( $imageOg );
                 }
 
-                $this->output( $ogp->toHTML() );
+                $ogp_html_arr = explode( PHP_EOL, $ogp->toHTML() );
+                
+                if(count($ogp_html_arr)) {
+                    foreach ($ogp_html_arr as $key => $ogp_html) {
+                        $this->output_raw( $ogp_html );
+                    }
+                }
+                
                 $facebook_app_id = qa_opt( qa_sss_opt::FACEBOOK_APP_ID );
 
                 if ( !empty( $facebook_app_id ) ) {
-                    $this->output( '<meta property="fb:app_id" content="' . $facebook_app_id . '" />' );
+                    $this->output_raw( '<meta property="fb:app_id" content="' . $facebook_app_id . '">' );
                 }
 
                 $twitter_username = trim( qa_opt( qa_sss_opt::TWITTER_HANDLE ) );
 
                 if ( !empty( $twitter_username ) ) {
+                    
                     if ( strpos( $twitter_username, '@' ) !== 0 )
                         $twitter_username = '@' . $twitter_username;
 
-                    $this->output( '<meta name="twitter:card" content="summary"/>',
-                        '<meta name="twitter:site" content=' . $twitter_username . '/>',
-                        '<meta name="twitter:creator" content="' . $twitter_username . '"/>'
-                    );
+                    $this->output_raw( '<meta name="twitter:card" content="summary">' );
+                    $this->output_raw( '<meta name="twitter:site" content=' . $twitter_username . '>' );
+                    $this->output_raw( '<meta name="twitter:creator" content="' . $twitter_username . '">' );
                 }
 
             }
