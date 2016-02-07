@@ -8,6 +8,7 @@
         const PREFIX = 'ami_sss_';
         const SHARE_TEXT = 'ami_sss_text';
         const SHARE_TEXT_HOME = 'ami_sss_text_home';
+        const SHARE_TEXT_BLOG_POST = 'ami_sss_text_blog_post';
         const CUSTOM_CSS = 'ami_sss_costum_css';
         const ADMIN_SAVE_BTN = 'ami_sss_save_button';
         const FB_BUTTON = 'ami_sss_btn_fb';

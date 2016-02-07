@@ -28,8 +28,18 @@
         public function generateShareButtons()
         {
             $request = qa_request() ;
+            $share_text = '' ;
+
+            if (empty($request)) {
+                $share_text = qa_opt(qa_sss_opt::SHARE_TEXT_HOME);
+            } else if($this->template == 'question'){
+                $share_text = qa_opt(qa_sss_opt::SHARE_TEXT);
+            } else if($this->template == 'blog'){
+                $share_text = qa_opt(qa_sss_opt::SHARE_TEXT_BLOG_POST);
+            }
+
             $this->themeobject->output( '<div class="social-share-text">' );
-            $this->themeobject->output( qa_opt( empty($request) ? qa_sss_opt::SHARE_TEXT_HOME : qa_sss_opt::SHARE_TEXT ) );
+            $this->themeobject->output( $share_text );
             $this->themeobject->output( '</div>' );
 
             $enabled_share = qa_get_options(

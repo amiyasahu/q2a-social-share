@@ -16,6 +16,7 @@
             switch ( $option ) {
                 case qa_sss_opt::SHARE_TEXT:
                 case qa_sss_opt::SHARE_TEXT_HOME:
+                case qa_sss_opt::SHARE_TEXT_BLOG_POST:
                     return;
                     break;
 
@@ -59,6 +60,7 @@
                 $trimchars = "=;\"\' \t\r\n"; // prevent common errors by copying and pasting from Javascript
                 qa_opt( qa_sss_opt::SHARE_TEXT, trim( qa_post_text( qa_sss_opt::SHARE_TEXT ), $trimchars ) );
                 qa_opt( qa_sss_opt::SHARE_TEXT_HOME, trim( qa_post_text( qa_sss_opt::SHARE_TEXT_HOME ), $trimchars ) );
+                qa_opt( qa_sss_opt::SHARE_TEXT_BLOG_POST, trim( qa_post_text( qa_sss_opt::SHARE_TEXT_BLOG_POST ), $trimchars ) );
                 qa_opt( qa_sss_opt::FB_BUTTON, (bool) qa_post_text( qa_sss_opt::FB_BUTTON ) );
                 qa_opt( qa_sss_opt::GP_BUTTON, (bool) qa_post_text( qa_sss_opt::GP_BUTTON ) );
                 qa_opt( qa_sss_opt::TW_BUTTON, (bool) qa_post_text( qa_sss_opt::TW_BUTTON ) );
@@ -102,6 +104,7 @@
                 'fields'  => array(
                     qa_sss_opt::SHARE_TEXT_HOME                  => $this->get_share_text_home_field(),
                     qa_sss_opt::SHARE_TEXT                       => $this->get_share_text_field(),
+                    qa_sss_opt::SHARE_TEXT_BLOG_POST             => $this->get_share_text_blog_post_field(),
                     qa_sss_opt::FB_BUTTON                        => $this->get_fb_button_field(),
                     qa_sss_opt::GP_BUTTON                        => $this->get_gp_button_field(),
                     qa_sss_opt::TW_BUTTON                        => $this->get_tw_button_field(),
@@ -159,6 +162,20 @@
                 'label' => qa_lang( 'sss_lang/enter_share_text' ),
                 'value' => qa_html( qa_opt( qa_sss_opt::SHARE_TEXT ) ),
                 'tags'  => 'name="' . qa_sss_opt::SHARE_TEXT . '"',
+                'note'  => qa_lang( 'sss_lang/choose_buttons_from_below' ),
+            );
+        }
+
+        /**
+         * @return array
+         */
+        public function get_share_text_blog_post_field()
+        {
+            return array(
+                'id'    => qa_sss_opt::SHARE_TEXT_BLOG_POST,
+                'label' => qa_lang( 'sss_lang/enter_share_text_for_blog_post' ),
+                'value' => qa_html( qa_opt( qa_sss_opt::SHARE_TEXT_BLOG_POST ) ),
+                'tags'  => 'name="' . qa_sss_opt::SHARE_TEXT_BLOG_POST . '"',
                 'note'  => qa_lang( 'sss_lang/choose_buttons_from_below' ),
             );
         }

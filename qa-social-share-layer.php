@@ -161,6 +161,7 @@
                 $social_share->generateShareButtons();
                 $this->output( '</div>' );
             }
+            
             parent::q_view_buttons( $q_view );
         }
 

@@ -2,7 +2,8 @@
     return array(
         'sss_settings_saved'               => 'Simple Social Sharing settings saved',
         'enter_share_text_for_home'        => 'Enter Your Share Text for home page:',
-        'enter_share_text'                 => 'Enter Your Share Text for question / blog page :',
+        'enter_share_text'                 => 'Enter Your Share Text for question page :',
+        'enter_share_text_for_blog_post'   => 'Enter Your Share Text for blog pages :',
         'choose_buttons_from_below'        => '<br />Choose Sharing Buttons from below: ',
         'fb'                               => 'Facebook',
         'gp'                               => 'Google+',
