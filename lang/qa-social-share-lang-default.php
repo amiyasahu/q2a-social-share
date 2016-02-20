@@ -16,6 +16,7 @@
         'st'                               => 'StumbleUpon',
         'email'                            => 'Email',
         'wa'                               => 'WhatsApp',
+        'tg'                               => 'Telegram',
         'whatsapp'                         => 'WhatsApp (Only on mobile devices)',
         'telegram'                         => 'Telegram (Only on mobile devices)',
         'sharing_btn_enable_note'          => '<br />Sharing buttons show up by default below each question / blog-post , but you might want 				to turn them off if you are using the Sharing widget',
